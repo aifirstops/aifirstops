@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import "../styles/LandingPage.scss";
+import "../Styles/LandingPage.scss";
 
 export default function LandingPage() {
   const features = [
