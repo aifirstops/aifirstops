@@ -1,0 +1,53 @@
+
+.usecases-fullscreen {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+  box-sizing: border-box;
+}
+/* /src/styles/UseCasesPage.scss */
+.use-cases-page {
+  width: 100%;
+  overflow-x: hidden;
+
+  .features-grid-wrapper {
+    width: 100%;
+    padding: 0 40px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin: 40px auto;
+    max-width: 1600px; /* Optional */
+  }
+
+  .feature-card {
+    background-color: #f9fbfe;
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+    &:hover {
+      background-color: #eaf3ff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #1b4de4;
+    }
+
+    .feature-description {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+  }
+}

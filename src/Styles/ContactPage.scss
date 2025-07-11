@@ -1,0 +1,113 @@
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  padding: 40px;
+  background: #f6f8fc;
+  font-family: "Segoe UI", sans-serif;
+  gap: 40px;
+
+  .contact-info {
+    flex: 1;
+    min-width: 300px;
+    background: #002d5b;
+    color: white;
+    padding: 40px;
+    border-radius: 12px;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+
+      span {
+        text-decoration: underline;
+        color: #ffb400;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      color: #e6efff;
+    }
+
+    .contact-details div {
+      margin-bottom: 12px;
+      font-size: 1rem;
+
+      span {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .contact-form {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.95rem;
+        color: #333;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-top: 6px;
+        font-size: 1rem;
+        background-color: #ffffff;
+        color: #333333;
+  
+      }
+
+      button {
+        margin-top: 10px;
+        background-color: #002d5b;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #004b8a;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+}

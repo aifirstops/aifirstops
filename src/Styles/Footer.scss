@@ -1,0 +1,30 @@
+/* /src/styles/Footer.scss */
+.footer {
+  background: #f1f4f8;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  font-size: 0.95rem;
+  color: #666;
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .socials {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: #0f62fe;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

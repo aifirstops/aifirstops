@@ -1,0 +1,163 @@
+/* === RESET & BASE === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  scroll-behavior: smooth;
+}
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #444;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === LAYOUT === */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 40px;
+}
+
+section {
+  width: 100%;
+  padding: 60px 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* === TITLES === */
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #0b0b0b;
+  margin-bottom: 20px;
+}
+
+.description {
+  text-align: center;
+  font-size: 1.125rem;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #666;
+}
+
+/* === FORM === */
+input,
+textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* === BUTTON === */
+button {
+  background-color: #0f62fe;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0353e9;
+}
+
+/* === OPTIONAL SHARED GRIDS === */
+.features-grid,
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.feature-card {
+  background-color: #f8f9ff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2f4de0;
+  margin-bottom: 10px;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #333;
+}
+/* === CONTACT PAGE === */
+.contact-page {
+  width: 100%;
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.contact-form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  flex: 1;
+  min-width: 300px;
+}
