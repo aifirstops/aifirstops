@@ -1,7 +1,7 @@
 // src/pages/UseCasesPage.jsx
 import React from "react";
-import "../styles/UseCasesPage.scss";
-import "../styles/main.scss";
+import "../Styles/UseCasesPage.scss";
+import "../Styles/main.scss";
 
 export default function UseCasesPage() {
   return (
