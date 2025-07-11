@@ -3,9 +3,18 @@ import "../Styles/AboutPage.scss";
 
 export default function AboutPage() {
   const values = [
-    "✅ Reliability through Intelligence",
-    "✅ Build with Empathy",
-    "✅ Ship Fast, Learn Faster"
+    {
+      title: "✅ Reliability through Intelligence",
+      description: "We ensure systems stay up with smart alerting and automation."
+    },
+    {
+      title: "✅ Build with Empathy",
+      description: "We design with real user pain points in mind, always."
+    },
+    {
+      title: "✅ Ship Fast, Learn Faster",
+      description: "We move quickly, learn from incidents, and improve continuously."
+    }
   ];
 
   return (
@@ -23,22 +32,13 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div className="highlight-box founder">
-        <h2>👤 Founder</h2>
-        <p>
-          [Founder Name] brings years of experience leading SRE and infrastructure efforts across
-          healthcare and digital platforms. Passionate about scalable ops and building
-          resilient systems that make a real impact.
-        </p>
-      </div>
-
-      <div className="highlight-box values">
-        <h2>🌟 Our Core Values</h2>
-        <ul>
-          {values.map((val, idx) => (
-            <li key={idx}>{val}</li>
-          ))}
-        </ul>
+      <div className="core-values-grid">
+        {values.map((val, idx) => (
+          <div className="core-value-card" key={idx}>
+            <h2>{val.title}</h2>
+            <p>{val.description}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

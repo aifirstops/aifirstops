@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "../Styles/LandingPage.scss";
+import Banner from "../components/Banner";
 
 export default function LandingPage() {
   const features = [
@@ -40,6 +41,9 @@ export default function LandingPage() {
               className="hero-logo"
             />
           </div>
+
+          {/* Banner comes immediately below the logo */}
+          <Banner />
 
           <motion.h1
             className="hero-title"

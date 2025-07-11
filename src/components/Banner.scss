@@ -1,0 +1,33 @@
+.hero-banner {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin: 20px;
+
+  &__text {
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    animation: pulseText 2.5s infinite;
+  }
+
+  &__subtext {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #e0eaff;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseText {
+  0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+  50% { text-shadow: 0 0 20px rgba(255,255,255,0.6); }
+}
