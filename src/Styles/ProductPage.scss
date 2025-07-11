@@ -1,18 +1,18 @@
+// /src/styles/ProductPage.scss
 
-.product-fullscreen {
+.product-page-fullscreen {
   width: 100vw;
-  min-height: 10vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   padding-top: 80px;
   box-sizing: border-box;
+  background-color: #ffffff;
 }
-// /src/styles/ProductPage.scss
 
 .product-page {
-  width: 100vw;
-  min-height: 10vh;
-  background-color: #ffffff;
+  width: 100%;
+  max-width: 1280px;
   padding: 60px 32px;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -30,6 +30,7 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 32px;
     width: 100%;
+    margin-bottom: 40px;
   }
 
   .feature-card {
@@ -39,6 +40,11 @@
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
 
     h3 {
       color: #0f62fe;
@@ -50,6 +56,36 @@
       color: #444;
       font-size: 1rem;
       line-height: 1.5;
+    }
+  }
+}
+
+// ✅ Mobile Responsiveness
+@media (max-width: 768px) {
+  .product-page {
+    padding: 32px 16px;
+
+    .page-title {
+      font-size: 1.8rem;
+      margin-bottom: 32px;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .feature-card {
+      padding: 20px;
+      text-align: center;
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
     }
   }
 }

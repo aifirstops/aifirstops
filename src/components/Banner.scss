@@ -6,7 +6,9 @@
   animation: fadeIn 1s ease-in-out;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  margin: 20px;
+  margin: 20px auto;
+  max-width: 100%;
+  width: calc(100% - 40px); // ensures padding on small screens
 
   &__text {
     font-size: 2rem;
@@ -19,6 +21,22 @@
     margin-top: 10px;
     font-size: 1.1rem;
     color: #e0eaff;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    padding: 20px 12px;
+    margin: 16px;
+    width: calc(100% - 32px);
+
+    &__text {
+      font-size: 1.5rem;
+    }
+
+    &__subtext {
+      font-size: 1rem;
+    }
   }
 }
 
