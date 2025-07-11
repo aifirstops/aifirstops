@@ -159,3 +159,58 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .landing-page {
+    header.hero-section {
+      padding: 20px 16px;
+
+      .hero-logo-wrapper {
+        margin-bottom: 16px;
+
+        .hero-logo {
+          height: 90px;
+          max-width: 220px;
+        }
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+      }
+
+      .hero-subtext {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+
+      .hero-button-wrapper {
+        .hero-button {
+          padding: 12px 24px;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .features-section {
+      padding: 32px 16px;
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .feature-card {
+        padding: 20px;
+        text-align: center;
+
+        .feature-title {
+          font-size: 1.25rem;
+        }
+
+        .feature-text {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
