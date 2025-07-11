@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/ProductPage.scss";
+import "../Styles/ProductPage.scss";
 
 export default function ProductPage() {
   const topFeatures = [
