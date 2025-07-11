@@ -1,6 +1,6 @@
 // /src/pages/CareersPage.jsx
 import React from "react";
-import "../styles/CareersPage.scss";
+import "../Styles/CareersPage.scss";
 
 export default function CareersPage() {
   const roles = ["AI/ML Engineer", "Full Stack Developer", "DevOps Engineer"];
