@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/AboutPage.scss";
+import "../Styles/AboutPage.scss";
 
 export default function AboutPage() {
   const values = [
