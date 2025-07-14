@@ -70,7 +70,7 @@ export default function ContactPage() {
             <ul className="space-y-5 text-gray-700">
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 mt-1 text-indigo-600" />
-                <span>support@aifirstops.com</span>
+                <span>hrconnect@aifirstops.com</span>
               </li>
             </ul>
           </motion.div>
