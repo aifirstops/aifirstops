@@ -1,4 +1,3 @@
-// src/pages/ProductPage.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -13,96 +12,117 @@ import {
 const features = [
   {
     title: "Alert Ingestion",
-    icon: <Server className="w-8 h-8 text-indigo-600" />,
-    description:
-      "Integrates with Dynatrace, Prometheus, Splunk for seamless incident intake.",
+    icon: <Server className="w-8 h-8 text-blue-600" />,
+    description: "Integrates with Dynatrace, Prometheus, Splunk for seamless incident intake.",
   },
   {
     title: "AI Classification Engine",
-    icon: <BrainCircuit className="w-8 h-8 text-indigo-600" />,
-    description:
-      "Categorizes incidents like memory leak, deployment issue, or CPU spike.",
+    icon: <BrainCircuit className="w-8 h-8 text-blue-600" />,
+    description: "Categorizes incidents like memory leak, deployment issue, or CPU spike.",
   },
   {
     title: "Remediation Recommendations",
-    icon: <Wrench className="w-8 h-8 text-indigo-600" />,
-    description:
-      "Suggests recovery steps such as restarting pods or scaling services.",
+    icon: <Wrench className="w-8 h-8 text-blue-600" />,
+    description: "Suggests recovery steps such as restarting pods or scaling services.",
   },
   {
     title: "Context Enrichment",
-    icon: <Search className="w-8 h-8 text-indigo-600" />,
-    description:
-      "Fetches logs, metrics, and correlates with similar past cases using vector memory.",
+    icon: <Search className="w-8 h-8 text-blue-600" />,
+    description: "Fetches logs, metrics, and correlates with similar past cases using vector memory.",
   },
   {
     title: "Automation Execution",
-    icon: <Layers3 className="w-8 h-8 text-indigo-600" />,
-    description:
-      "Executes custom playbooks and workflows with full audit logging.",
+    icon: <Layers3 className="w-8 h-8 text-blue-600" />,
+    description: "Executes custom playbooks and workflows with full audit logging.",
   },
   {
     title: "Feedback Loop",
-    icon: <Repeat className="w-8 h-8 text-indigo-600" />,
-    description:
-      "Learns from resolved alerts and analyst feedback to improve accuracy.",
+    icon: <Repeat className="w-8 h-8 text-blue-600" />,
+    description: "Learns from resolved alerts and analyst feedback to improve accuracy.",
   },
 ];
 
 export default function ProductPage() {
   return (
-    <div className="bg-white text-gray-900 overflow-hidden relative">
-      {/* Hero Section with Parallax */}
-      <section className="relative min-h-[80vh] bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white text-center flex items-center justify-center px-6">
-        <div
-          className="absolute inset-0 bg-[url('/grid.svg')] bg-cover opacity-10 pointer-events-none animate-pulse"
-          aria-hidden="true"
-        />
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
+    <div className="bg-neutral-950 text-white min-h-screen overflow-hidden relative">
+      {/* Gradient Circles */}
+      <div className="absolute top-[-150px] left-[-100px] w-[500px] h-[500px] bg-gradient-to-br from-cyan-400 to-white opacity-10 blur-3xl rounded-full animate-pulse" />
+      <div className="absolute bottom-[-120px] right-[-100px] w-[400px] h-[400px] bg-gradient-to-tr from-blue-500 to-white opacity-10 blur-2xl rounded-full animate-pulse" />
+
+      {/* Hero Section */}
+      <section className="relative z-10 text-center px-6 md:px-12 pt-36 pb-24">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="z-10"
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-5xl font-extrabold leading-tight max-w-5xl mx-auto"
         >
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
-            AI-first Incident Intelligence Platform
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Purpose-built for IT Ops teams to detect, classify, and resolve incidents faster using AI.
-          </p>
-        </motion.div>
+          AI-first Incident Intelligence Platform
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="text-lg md:text-xl text-gray-300 mt-6 max-w-3xl mx-auto"
+        >
+          Purpose-built for IT Ops teams to detect, classify, and resolve incidents faster using AI.
+        </motion.p>
       </section>
 
-      {/* Features with Scroll Reveal and Pattern */}
-      <section className="py-24 px-6 md:px-16 bg-gray-100 relative z-10">
-        <div className="absolute inset-0 bg-[url('/dots.svg')] bg-contain opacity-10 pointer-events-none" />
+      {/* Features */}
+      <section className="relative z-10 px-6 md:px-20 pb-32">
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-12 relative z-10"
+          className="text-3xl md:text-4xl font-bold text-center mb-16"
         >
           Key Platform Capabilities
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-10 relative z-10">
+        <motion.div
+          className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2,
+              },
+            },
+          }}
+        >
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-md hover:shadow-lg transition duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1"
             >
               <div className="mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-700">{feature.description}</p>
+              <p className="text-gray-300 text-sm">{feature.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
+
+      {/* Footer Note */}
+      <motion.section
+        className="relative z-10 px-6 md:px-12 pb-16 text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+      >
+        <p className="text-sm text-gray-500 italic">
+          Designed for DevOps. Powered by intelligence.
+        </p>
+      </motion.section>
     </div>
   );
 }

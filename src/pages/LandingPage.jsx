@@ -1,97 +1,112 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.15 * i, duration: 0.7, ease: "easeOut" },
+  }),
+};
+
+const scaleIn = {
+  hidden: { scale: 0.9, opacity: 0 },
+  visible: { scale: 1, opacity: 1, transition: { duration: 0.6 } },
+};
+
 export default function LandingPage() {
   return (
-    <div className="bg-white text-gray-900">
+    <div className="bg-neutral-950 text-white min-h-screen overflow-hidden relative">
+      {/* Animated Gradients */}
+      <div className="absolute top-[-150px] left-[-100px] w-[500px] h-[500px] bg-gradient-to-br from-cyan-500 to-white opacity-20 blur-3xl rounded-full animate-pulse" />
+      <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-gradient-to-tr from-indigo-600 to-white opacity-10 blur-2xl rounded-full animate-pulse" />
+
       {/* Hero */}
-      <section className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex flex-col items-center justify-center px-4 text-white text-center">
+      <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 md:px-12 pt-32 pb-20">
         <motion.h1
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-5xl md:text-6xl font-extrabold mb-4"
-        >
-          Welcome to AiFirstOps
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl max-w-2xl"
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="text-4xl md:text-5xl font-extrabold leading-tight max-w-4xl"
         >
           Transform IT Operations with Intelligent AI Automation
+        </motion.h1>
+        <motion.p
+          variants={fadeUp}
+          custom={2}
+          initial="hidden"
+          animate="visible"
+          className="text-lg md:text-xl text-gray-300 mt-6 max-w-3xl"
+        >
+          Make your SRE and Ops teams faster, smarter, and more proactive with AiFirstOps.
+        </motion.p>
+        <motion.p
+          variants={fadeUp}
+          custom={3}
+          initial="hidden"
+          animate="visible"
+          className="text-md md:text-lg text-gray-400 mt-4 max-w-2xl"
+        >
+          AI-powered alert classification, root cause insights, and auto-remediation — all in one platform.
         </motion.p>
       </section>
 
-      {/* What We Offer */}
-      <section className="py-20 px-6 md:px-20 bg-gray-100 text-center">
-        <h2 className="text-4xl font-bold mb-6">What We Offer</h2>
-        <p className="text-lg max-w-3xl mx-auto mb-12">
-          AiFirstOps offers a cutting-edge platform to optimize and automate your IT operations,
-          reduce downtime, and elevate decision-making through AI.
-        </p>
-        <div className="grid md:grid-cols-3 gap-10 text-left">
+      {/* Feature Cards */}
+      <section className="relative z-10 px-6 md:px-20 pb-24">
+        <motion.div
+          className="max-w-5xl mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-2"
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            visible: {
+              transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+            },
+          }}
+          viewport={{ once: true }}
+        >
           {[
             {
-              title: "AI-Driven Incident Management",
-              desc: "Automate triaging, root cause analysis, and resolution with intelligent workflows.",
+              title: "Triage Smarter",
+              desc: "Classify alerts using AI.",
             },
             {
-              title: "Smart Observability",
-              desc: "Detect anomalies before they become outages using predictive insights.",
+              title: "Diagnose Faster",
+              desc: "Get enriched root causes in seconds.",
             },
             {
-              title: "Seamless Integrations",
-              desc: "Plug into your existing tools like ServiceNow, PagerDuty, Slack, and more.",
+              title: "Recover Automatically",
+              desc: "Trigger remediations with one click.",
             },
-          ].map((item, idx) => (
+            {
+              title: "Learn Continuously",
+              desc: "Build an incident memory over time.",
+            },
+          ].map((item, index) => (
             <motion.div
-              key={idx}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition"
+              key={index}
+              variants={scaleIn}
+              className="bg-white/5 p-6 rounded-xl border border-white/10 backdrop-blur-md"
             >
               <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p>{item.desc}</p>
+              <p className="text-gray-300">{item.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
-      {/* Why AiFirstOps */}
-      <section className="py-20 px-6 md:px-20 bg-white text-center">
-        <h2 className="text-4xl font-bold mb-6">Why AiFirstOps?</h2>
-        <p className="text-lg max-w-3xl mx-auto mb-12">
-          Designed for modern enterprises, AiFirstOps blends AI, automation, and observability
-          into a unified platform that helps SREs, DevOps teams, and IT leaders deliver unmatched
-          performance and reliability.
+      {/* Partner Message */}
+      <motion.section
+        className="relative z-10 px-6 md:px-12 pb-24 text-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
+        <p className="text-sm text-gray-500 italic">
+          Built by former SREs who managed critical healthcare infrastructure
         </p>
-        <div className="grid md:grid-cols-3 gap-10 text-left">
-          {[
-            {
-              title: "Unified AI Ops",
-              desc: "Centralize monitoring, alerting, and automation across hybrid environments.",
-            },
-            {
-              title: "Faster MTTR",
-              desc: "Resolve incidents in record time with automated root cause analysis.",
-            },
-            {
-              title: "Cost Optimization",
-              desc: "Eliminate redundant alerts, reduce noise, and optimize resource usage.",
-            },
-          ].map((item, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gray-100 rounded-2xl p-6 shadow hover:shadow-md transition"
-            >
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p>{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+      </motion.section>
     </div>
   );
 }
