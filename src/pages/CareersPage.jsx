@@ -1,79 +1,108 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Briefcase, Globe, Users, Heart } from "lucide-react";
+import {
+  Cpu,
+  Code,
+  Briefcase,
+  Globe,
+  Users,
+  Heart,
+} from "lucide-react";
+
+const openRoles = [
+  {
+    icon: <Cpu className="w-10 h-10 text-indigo-600" />,
+    title: "AI/ML Engineer",
+  },
+  {
+    icon: <Code className="w-10 h-10 text-indigo-600" />,
+    title: "Full Stack Developer",
+  },
+  {
+    icon: <Briefcase className="w-10 h-10 text-indigo-600" />,
+    title: "DevOps Engineer",
+  },
+];
 
 const perks = [
   {
     icon: <Globe className="w-8 h-8 text-indigo-600" />,
-    title: "Remote-first",
-    desc: "Work from anywhere with async flexibility.",
+    title: "Remote-first culture",
+    desc: "Work from anywhere with async collaboration.",
   },
   {
     icon: <Users className="w-8 h-8 text-indigo-600" />,
-    title: "Tight-knit Team",
-    desc: "Collaborate with passionate, driven engineers.",
+    title: "Direct product impact",
+    desc: "Shape the AI Ops stack used by global teams.",
   },
   {
     icon: <Heart className="w-8 h-8 text-indigo-600" />,
-    title: "Impactful Mission",
-    desc: "Build tools that empower SREs and automate IT Ops.",
+    title: "Real-world AI + Ops",
+    desc: "Solve meaningful engineering problems that matter.",
   },
   {
     icon: <Briefcase className="w-8 h-8 text-indigo-600" />,
-    title: "Equity Options",
-    desc: "You’re not just joining — you’re owning part of the journey.",
+    title: "Ownership & Equity",
+    desc: "Be a part of something big — and own a piece of it.",
   },
 ];
 
 export default function CareersPage() {
   return (
-    <div className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-100 min-h-screen text-gray-800 overflow-hidden">
-      {/* Floating Background Shapes */}
-      <div className="absolute top-[-6rem] left-[-6rem] w-[400px] h-[400px] bg-indigo-100 rounded-full blur-3xl opacity-40 animate-float" />
-      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-purple-200 rounded-full blur-3xl opacity-30 animate-float-slow" />
-
-      <section className="text-center py-24 px-6 sm:px-10 relative z-10">
+    <div className="relative bg-white text-gray-900">
+      <section className="py-24 px-6 sm:px-10 max-w-7xl mx-auto">
         {/* Hero */}
         <motion.h1
-          className="text-5xl font-extrabold mb-4"
+          className="text-4xl md:text-5xl font-bold text-center mb-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
-          Join the Future of AI-Driven Operations
+          Join Us in Shaping the Future of Intelligent Ops
         </motion.h1>
         <motion.p
-          className="text-xl max-w-3xl mx-auto text-gray-700 mb-12"
+          className="text-lg text-center text-gray-600 max-w-2xl mx-auto mb-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          Be part of a team that’s redefining how IT Ops works — faster,
-          smarter, and fully automated.
+          Help us build a smarter, faster, AI-first future. We’re hiring brilliant minds like yours.
         </motion.p>
 
-        {/* Perks Section */}
-        <motion.h2
-          className="text-3xl font-semibold mb-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Why Work With Us?
-        </motion.h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto mb-24">
-          {perks.map((perk, index) => (
+        {/* Open Roles */}
+        <h2 className="text-2xl font-semibold text-center mb-8">Open Roles</h2>
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
+          {openRoles.map((role, index) => (
             <motion.div
               key={index}
-              className="bg-white/60 backdrop-blur-md border border-white/20 p-6 rounded-xl text-center shadow-md hover:shadow-lg transition-all"
-              initial={{ opacity: 0, y: 30 }}
+              className="flex flex-col items-center justify-center bg-white border border-gray-200 shadow-md p-8 rounded-2xl hover:shadow-xl transition-all"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
+              <div className="mb-4">{role.icon}</div>
+              <h4 className="text-lg font-medium">{role.title}</h4>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Why Work With Us */}
+        <h2 className="text-2xl font-semibold text-center mb-10">
+          Why Work With Us?
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+          {perks.map((perk, index) => (
+            <motion.div
+              key={index}
+              className="bg-white border border-gray-100 shadow-sm p-6 rounded-xl hover:shadow-md transition-all text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
               <div className="flex justify-center mb-3">{perk.icon}</div>
-              <h4 className="text-lg font-semibold text-indigo-700 mb-1">
+              <h4 className="text-base font-semibold text-indigo-700 mb-1">
                 {perk.title}
               </h4>
               <p className="text-gray-600 text-sm">{perk.desc}</p>
@@ -83,23 +112,20 @@ export default function CareersPage() {
 
         {/* Call to Action */}
         <motion.div
-          className="bg-white/70 backdrop-blur-lg border border-white/30 p-10 rounded-2xl max-w-2xl mx-auto shadow-xl"
+          className="bg-indigo-50 border border-indigo-100 rounded-2xl p-10 text-center shadow-inner max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
-          <h3 className="text-2xl font-bold mb-4 text-indigo-700">
-            Excited to build the future with us?
+          <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+            Ready to make a difference?
           </h3>
           <p className="text-gray-700 mb-6">
-            Even if there’s no open role listed, we’d love to hear from talented
-            folks. Send us your resume and tell us how you can make an impact at
-            AiFirstOps.
+            We’re always open to brilliant minds. Drop us your resume — we’d love to hear from you.
           </p>
           <a
             href="mailto:hrconnect@aifirstops.com"
-            className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition"
+            className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition"
           >
             Send Your Resume
           </a>

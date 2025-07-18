@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+// src/components/Navbar.jsx
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const { pathname } = useLocation();
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
@@ -17,72 +16,35 @@ export default function Navbar() {
     { label: "Contact", path: "/contact" },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const isActive = (path) => pathname === path;
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 shadow-sm backdrop-blur-md border-b border-gray-200"
-          : "bg-transparent"
-      }`}
-    >
+    <header className="fixed top-0 left-0 w-full bg-white z-50 border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-2 text-gray-900">
-          <motion.svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 64 64"
-            className="w-7 h-7 text-blue-600"
-            initial={{ rotate: 0 }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          >
-            <path
-              d="M32 4L58 20v24L32 60 6 44V20L32 4z"
-              fill="currentColor"
-              stroke="none"
-            />
-          </motion.svg>
-          <span className="text-xl font-extrabold tracking-tight leading-none hover:tracking-wide transition-all duration-300">
-            AiFirst<span className="text-blue-600">Ops</span>
-          </span>
+        <Link to="/" className="text-2xl font-bold text-gray-900">
+          AiFirst<span className="text-neutral-600">Ops</span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex space-x-8 items-center text-sm font-medium">
           {navLinks.map(({ label, path }) => (
-            <motion.div
+            <Link
               key={path}
-              whileHover={{ scale: 1.05 }}
-              className="relative group"
+              to={path}
+              className={`relative group transition ${
+                isActive(path) ? "text-black" : "text-gray-500 hover:text-black"
+              }`}
             >
-              <Link
-                to={path}
-                className={`text-sm font-medium transition-all ${
-                  isActive(path)
-                    ? "text-blue-600"
-                    : "text-gray-600 hover:text-blue-600"
-                }`}
-              >
-                {label}
-              </Link>
+              {label}
               <span
-                className={`absolute left-0 -bottom-0.5 h-[2px] bg-blue-600 transition-all duration-300 ${
-                  isActive(path) ? "w-full" : "w-0 group-hover:w-full"
+                className={`absolute left-0 -bottom-1 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full ${
+                  isActive(path) ? "w-full" : "w-0"
                 }`}
               />
-            </motion.div>
+            </Link>
           ))}
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-gray-700"
@@ -92,32 +54,22 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden bg-white border-t border-gray-200 px-6 py-5 space-y-4 shadow"
-          >
-            {navLinks.map(({ label, path }) => (
-              <Link
-                key={path}
-                to={path}
-                onClick={() => setMenuOpen(false)}
-                className={`block text-base font-medium ${
-                  isActive(path)
-                    ? "text-blue-600 underline"
-                    : "text-gray-700 hover:text-blue-600"
-                }`}
-              >
-                {label}
-              </Link>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {menuOpen && (
+        <div className="md:hidden bg-white border-t px-6 py-4 space-y-4">
+          {navLinks.map(({ label, path }) => (
+            <Link
+              key={path}
+              to={path}
+              onClick={() => setMenuOpen(false)}
+              className={`block text-base font-medium ${
+                isActive(path) ? "text-black" : "text-gray-700 hover:text-black"
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
